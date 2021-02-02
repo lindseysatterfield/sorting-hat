@@ -19,6 +19,7 @@ const studentForm = () => {
           <label for="studentNames" class="col-sm-2 col-form-label">Students</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="inputName" placeholder="Wizard Name" required>
+            <button type="submit" class="btn btn-primary" id="sort-input-btn">Sort Me!</button>
           </div>
         </div>
       </form>`;
