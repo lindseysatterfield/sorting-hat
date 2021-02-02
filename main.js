@@ -29,7 +29,6 @@ const studentForm = () => {
 
 const buttonEvents = () => {
 	document.querySelector('#sorting-btn').addEventListener('click', studentForm);
-	document.querySelector('#sort-input-btn').addEventListener('click', getFormInfo);
 };
 
 const init = () => {
