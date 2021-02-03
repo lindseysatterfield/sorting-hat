@@ -30,16 +30,30 @@ const showStudentForm = () => {
 
 const getStudentForm = (e) => {
 	e.preventDefault();
-	console.log('form submitted');
 	const name = document.querySelector('#inputName').value;
 	const house = hogwartsHouses[Math.floor(Math.random() * hogwartsHouses.length)];
 	const studentObj = {
 		name,
 		house
 	};
-	students.push(studentObj);
+	students.push(studentObj); //PUSHES STUDENT OBJECTS INTO THE STUDENTS ARRAY
 	console.log(students);
 	document.querySelector('form').reset();
+	studentCard(students);
+};
+
+const studentCard = (array) => {
+	let domString = '';
+	for (let i = 0; i < array.length; i++) {
+		domString += `<div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">${array[i].name}</h5>
+                      <p class="card-text">${array[i].house}</p>
+                      <button type="submit" class="btn btn-primary" id="expel-btn">EXPEL</button>
+                    </div>
+                  </div>`;
+	}
+	printToDom('#cards-container', domString);
 };
 
 const buttonEvents = () => {
