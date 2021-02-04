@@ -38,23 +38,24 @@ const getStudentForm = (e) => {
 		house
 	};
 	students.push(studentObj); //PUSHES STUDENT OBJECTS INTO THE STUDENTS ARRAY
-	console.log(students);
 	document.querySelector('form').reset();
 	studentCard(students);
+	console.log(students);
 };
 
 // makes a card for the student
 const studentCard = (array) => {
 	let domString = '';
-	for (let i = 0; i < array.length; i++) {
+	array.forEach((student, i) => {
 		domString += `<div class="card" style="width: 18rem;" id=${i}>
-                    <div class="card-body">
-                      <h5 class="card-title">${array[i].name}</h5>
-                      <p class="card-text">${array[i].house}</p>
-                      <button type="button" class="btn btn-danger expel-btn" id="${i}">EXPEL</button>
-                    </div>
-                  </div>`;
-	}
+	                  <div class="card-body">
+	                    <h5 class="card-title">${student.name}</h5>
+	                    <p class="card-text">${student.house}</p>
+	                    <button type="button" class="btn btn-danger expel-btn" id="${i}">EXPEL</button>
+	                  </div>
+	                </div>`;
+	});
+
 	printToDom('#cards-container', domString);
 };
 
