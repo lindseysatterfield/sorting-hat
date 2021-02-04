@@ -28,6 +28,7 @@ const showStudentForm = () => {
 	document.querySelector('form').addEventListener('submit', getStudentForm);
 };
 
+//gets the form from the student
 const getStudentForm = (e) => {
 	e.preventDefault();
 	const name = document.querySelector('#inputName').value;
@@ -42,22 +43,35 @@ const getStudentForm = (e) => {
 	studentCard(students);
 };
 
+// makes a card for the student
 const studentCard = (array) => {
 	let domString = '';
 	for (let i = 0; i < array.length; i++) {
-		domString += `<div class="card" style="width: 18rem;">
+		domString += `<div class="card" style="width: 18rem;" id=${i}>
                     <div class="card-body">
                       <h5 class="card-title">${array[i].name}</h5>
                       <p class="card-text">${array[i].house}</p>
-                      <button type="submit" class="btn btn-primary" id="expel-btn">EXPEL</button>
+                      <button type="button" class="btn btn-danger expel-btn" id="${i}">EXPEL</button>
                     </div>
                   </div>`;
 	}
 	printToDom('#cards-container', domString);
 };
 
+// deletes the card
+const expelStudents = (e) => {
+	const targetType = e.target.type;
+	const targetId = e.target.id;
+
+	if (targetType === 'button') {
+		students.splice(targetId, 1);
+	}
+	studentCard(students);
+};
+
 const buttonEvents = () => {
 	document.querySelector('#sorting-btn').addEventListener('click', showStudentForm);
+	document.querySelector('#cards-container').addEventListener('click', expelStudents);
 };
 
 const init = () => {
