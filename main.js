@@ -5,6 +5,7 @@ const hogwartsHouses = [
 	'Hufflepuff',
 	'Gryffindor'
 ];
+const voldemortsArmy = [];
 
 const printToDom = (divId, textToPrint) => {
 	const selectedDiv = document.querySelector(divId);
@@ -59,14 +60,32 @@ const studentCard = (array) => {
 	printToDom('#cards-container', domString);
 };
 
+// sends expelled students to voldemort's army
+const hogwartsRejects = (array) => {
+	let domString = '';
+	array.forEach((reject, i) => {
+		domString += `<div class="card" style="width: 18rem;" id=${i}>
+	                  <div class="card-body">
+	                    <h5 class="card-title">${reject.name}</h5>
+                      <p class="card-text">${reject.house}</p>
+                      <p class="card-text">${reject.name}, welcome to the dark side!</p>
+	                  </div>
+	                </div>`;
+	});
+	printToDom('#voldemort-container', domString);
+};
+
 // deletes the card
 const expelStudents = (e) => {
 	const targetType = e.target.type;
 	const targetId = e.target.id;
 
 	if (targetType === 'button') {
-		students.splice(targetId, 1);
+		const studentReject = students.splice(targetId, 1);
+		voldemortsArmy.push(...studentReject);
+		hogwartsRejects(voldemortsArmy);
 	}
+
 	studentCard(students);
 };
 
