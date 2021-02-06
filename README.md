@@ -7,7 +7,8 @@ The Sorting Hat is an app for users to enter their names to get sorted into a ra
 ![Sorting Hat Mockup](https://github.com/nss-nightclass-projects/exercise-vault/raw/master/images/sorting-hat-mockup.png)
 
 ## Deployed project
-https://app.netlify.com/sites/lindseysatterfield-sorting-hat/deploys/601e15d68baccad69632ff36
+https://app.netlify.com/sites/lindseysatterfield-sorting-hat/overview
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b08018eb-8da1-4324-adee-495fdd02a8fe/deploy-status)](https://app.netlify.com/sites/lindseysatterfield-sorting-hat/deploys)
 
 ## Project Board
 https://github.com/lindseysatterfield/sorting-hat/projects/1
