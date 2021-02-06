@@ -21,8 +21,7 @@ const showStudentForm = () => {
                   <input type="text" class="form-control" id="inputName" placeholder="Wizard Name" required>
                 </div>
               </div>
-              <button type="submit" class="btn" style="width: 150px; background-color: #740001; color: white;"                  id="sort-input-btn">Sort Me!
-              </button>
+              <button type="submit" class="btn" style="width: 150px; background-color: #740001; color: white;" id="sort-input-btn">Sort Me!</button>
            </form>`;
 
 	printToDom('#students-container', form);
@@ -65,7 +64,7 @@ const studentCard = (array) => {
 const hogwartsRejects = (array) => {
 	let domString = '';
 	array.forEach((reject, i) => {
-		domString += `<div class="card text-center m-1" style="width: 18rem; height: 190px; background-color: #004101; color: white;" id=${i}>
+		domString += `<div class="card text-center m-1" style="width: 18rem; height: 190px; background-color: #004101; color: white;" id={i}>
                     <div class="card-body p-2">
                       <h4>Voldemort's Army</h4>
 	                    <h4 class="card-title">${reject.name}</h4>
@@ -84,7 +83,7 @@ const expelStudents = (e) => {
 	const targetId = e.target.id;
 
 	if (targetType === 'button') {
-		const studentReject = students.splice(targetId, 1);
+		let studentReject = students.splice(targetId, 1);
 		voldemortsArmy.push(...studentReject);
 		hogwartsRejects(voldemortsArmy);
 	}
