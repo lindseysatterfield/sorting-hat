@@ -48,7 +48,7 @@ const studentCard = (array) => {
 	let domString = '';
 	array.forEach((student, i) => {
 		domString += `
-                  <div class="card text-center m-1" style="width: 18rem; height: 160px" id=${i}>
+                  <div class="card text-center m-1" style="width: 18rem; height: 190px" id=${i}>
 	                  <div class="card-body p-2">
 	                    <h4 class="card-title">${student.name}</h4>
 	                    <p class="lead card-text">${student.house}</p>
@@ -64,7 +64,7 @@ const studentCard = (array) => {
 const hogwartsRejects = (array) => {
 	let domString = '';
 	array.forEach((reject, i) => {
-		domString += `<div class="card text-center m-1" style="width: 18rem; height: 160px" id=${i}>
+		domString += `<div class="card text-center m-1" style="width: 18rem; height: 190px" id=${i}>
 	                  <div class="card-body p-2">
 	                    <h4 class="card-title">${reject.name}</h4>
                       <p class="card-text" style="text-decoration: line-through;">${reject.house}</p>
