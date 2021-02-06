@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 * {
   box-sizing: border-box;
@@ -9,22 +8,8 @@ body {
   background-color: #b8b8b8;
   font-family: 'Cinzel', serif;
   margin: 0 auto;
-  /* font-family: 'Playfair Display', serif; */
 }
-
-/* #cards-container, #voldemort-container {
-  border: 1px solid red;
-} */
 
 .full-container {
   margin: 0 auto;
-}
-
-/* ***** MEDIA QUERY ***** */
-@media (max-width: 768px) {
-  #inputName {
-    color: black;
-  }
-
-
 }
