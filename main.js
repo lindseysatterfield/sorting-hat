@@ -12,18 +12,18 @@ const printToDom = (divId, textToPrint) => {
 	selectedDiv.innerHTML = textToPrint;
 };
 
+// shows the form upon clicking the button
 const showStudentForm = () => {
 	let form = '';
-	form += `
-      <form>
-        <div class="form-group row">
-          <label for="studentNames" class="col-sm-2 col-form-label">Students</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputName" placeholder="Wizard Name" required>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" id="sort-input-btn">Sort Me!</button>
-      </form>`;
+	form += `<form class="text-center mb-2">
+              <div class="form-group row d-flex justify-content-center mb-4">
+                <div class="col-sm-10 w-auto">
+                  <input type="text" class="form-control" id="inputName" placeholder="Wizard Name" required>
+                </div>
+              </div>
+              <button type="submit" class="btn" style="width: 150px; background-color: #740001; color: white;"                  id="sort-input-btn">Sort Me!
+              </button>
+           </form>`;
 
 	printToDom('#students-container', form);
 	document.querySelector('form').addEventListener('submit', getStudentForm);
@@ -41,20 +41,20 @@ const getStudentForm = (e) => {
 	students.push(studentObj); //PUSHES STUDENT OBJECTS INTO THE STUDENTS ARRAY
 	document.querySelector('form').reset();
 	studentCard(students);
-	console.log(students);
 };
 
 // makes a card for the student
 const studentCard = (array) => {
 	let domString = '';
 	array.forEach((student, i) => {
-		domString += `<div class="card" style="width: 18rem;" id=${i}>
-	                  <div class="card-body">
-	                    <h5 class="card-title">${student.name}</h5>
-	                    <p class="card-text">${student.house}</p>
+		domString += `
+                  <div class="card text-center m-1" style="width: 18rem; height: 160px" id=${i}>
+	                  <div class="card-body p-2">
+	                    <h4 class="card-title">${student.name}</h4>
+	                    <p class="lead card-text">${student.house}</p>
 	                    <button type="button" class="btn btn-danger expel-btn" id="${i}">EXPEL</button>
 	                  </div>
-	                </div>`;
+                  </div>`;
 	});
 
 	printToDom('#cards-container', domString);
@@ -64,18 +64,19 @@ const studentCard = (array) => {
 const hogwartsRejects = (array) => {
 	let domString = '';
 	array.forEach((reject, i) => {
-		domString += `<div class="card" style="width: 18rem;" id=${i}>
-	                  <div class="card-body">
-	                    <h5 class="card-title">${reject.name}</h5>
-                      <p class="card-text">${reject.house}</p>
-                      <p class="card-text">${reject.name}, welcome to the dark side!</p>
+		domString += `<div class="card text-center m-1" style="width: 18rem; height: 160px" id=${i}>
+	                  <div class="card-body p-2">
+	                    <h4 class="card-title">${reject.name}</h4>
+                      <p class="card-text" style="text-decoration: line-through;">${reject.house}</p>
+                      <p class="card-text pb-1">${reject.name}, welcome to the dark side!</p>
 	                  </div>
 	                </div>`;
 	});
+
 	printToDom('#voldemort-container', domString);
 };
 
-// deletes the card
+// deletes the card and pushes them to a new array
 const expelStudents = (e) => {
 	const targetType = e.target.type;
 	const targetId = e.target.id;
