@@ -17,7 +17,7 @@ https://github.com/lindseysatterfield/sorting-hat/projects/1
 This is great for a user who would like to be sorted into a Hogwarts house randomly.
 
 ## Features
-- Form dynimaically added to the DOM for the user to enter their name after they click a button
+- Form dynamically added to the DOM for the user to enter their name after they click a button
 - When the user enters their name and clicks the 'Sort Me!' button, a card populated with their name and a random Hogwarts house is dynaimcally added to the DOM
 - If the user chooses to 'expel' the student, a new card is dynamically added to the DOM and sent to Voldemort's Army where the card changes color
 
